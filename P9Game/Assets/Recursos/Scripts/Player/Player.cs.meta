@@ -3,7 +3,9 @@ guid: e5280af953a2c61468f1400d65489ebb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - "sonidoDa\xF1o": {fileID: 8300000, guid: 137c86254994b74449019ebce5c52cf1, type: 3}
+  - sonidoMotivaccion: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
