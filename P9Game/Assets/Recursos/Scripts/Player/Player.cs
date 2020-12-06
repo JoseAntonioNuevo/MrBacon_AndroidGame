@@ -8,32 +8,37 @@ public class Player : MonoBehaviour
 
     public float velocidad = 14f;
     public float posicionX =0f;
-    public float margenDechoquePantalla = 0.1f;
     public int vida;
+
+
     public float timeOfRayo;
     public float timeOfEscudo;
+    public float timeAnimedaño;
+
+
     public float limitRayo;
     public float limitEscudo;
+
     public bool escudoActivo;
     public bool disparoActivo;
-    public float timeRemaining;
+
+
+
     public AudioClip sonidoDaño;
     public AudioClip sonidoMotivaccion;
-
-
     public bool recibiendodaño;
 
 
-
-
-
-
+    float timeRemaining;
+    float timeRemainingDaño;
     float inputaxyY; //entrada del jugador. 
     Camera mainCamera;
     Vector3 posicionVentana;
     private Rigidbody2D rigi;
     private bool ActiveRotary;
     AudioSource sound;
+    private Animator animacion;
+
     void Start()
     {
         escudoActivo = false;
@@ -41,16 +46,14 @@ public class Player : MonoBehaviour
         mainCamera = Camera.main.GetComponent<Camera>();
         rigi = GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
-
+        animacion = GetComponent<Animator>();
+        animacion.SetInteger("vida", vida);
     }
-
     // Update is called once per frame
     void Update()
     {
         Movimiento();
-
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Meteorito"){
@@ -65,18 +68,6 @@ public class Player : MonoBehaviour
 
 
     }
-
-
-/*
-        void fire()
-        {
-            dispos = transform.position;
-            dispos += new Vector2(2f, 0f);
-            Instantiate(disparo, dispos, Quaternion.identity);
-        }
-
-        */
-
     private void Movimiento()
     {
         inputaxyY = Input.GetAxis("Vertical");
@@ -84,23 +75,22 @@ public class Player : MonoBehaviour
         if(inputaxyY != 0)
             transform.Translate(0, inputaxyY * Time.deltaTime * velocidad, 0);
 
-
-
-
         if (Mathf.Abs(rigi.rotation) > 0 && !ActiveRotary)
         {
             ActiveRotary = true;
             timeRemaining = 0.8f;
         }
+        
 
-        if (ActiveRotary)
-            TimerRotary();
+        TimerRotary();//Función que ejecuta la logica de temporizadores.
 
         if (transform.rotation.z != 0)
             transform.Rotate(new Vector3(0, 0, transform.rotation.z *-1) * Time.deltaTime * 500f);
    
-
-
+/*
+        if(animacion.GetBool("recibeDaño"))
+            animacion.SetBool("recibeDaño", false);
+*/
 
         posicionVentana = mainCamera.WorldToViewportPoint(transform.position);
         posicionVentana.x = posicionX;
@@ -109,31 +99,48 @@ public class Player : MonoBehaviour
     }
     private void TimerRotary() {
 
-
-        if (timeRemaining > 0)
-        {
-           timeRemaining -= Time.deltaTime;
-        }
-        else {
-            //Resetear rigibody.
-            rigi.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-            Vector3 eulerRotation = transform.rotation.eulerAngles;
-
-     
-
-            rigi.velocity = Vector2.zero;
-            ActiveRotary = false;
-            rigi.constraints = RigidbodyConstraints2D.None;
+        if(ActiveRotary)
+            if (timeRemaining > 0)
+            {
+               timeRemaining -= Time.deltaTime;
+            }else{
+                //Resetear rigibody.
+                rigi.constraints = RigidbodyConstraints2D.FreezeRotation;
+                Vector3 eulerRotation = transform.rotation.eulerAngles;
+                rigi.velocity = Vector2.zero;
+                ActiveRotary = false;
+                rigi.constraints = RigidbodyConstraints2D.None;
+            }
 
 
-        }
-
+        if(recibiendodaño)
+            if (timeRemainingDaño > 0)
+            {
+                timeRemainingDaño -= Time.deltaTime;
+            }
+            else
+            {
+                animacion.SetBool("recibeDaño", false);
+                recibiendodaño = false;
+            }
     }
+
+
 
     private void Recibirdano(int danio)
     {
-        vida -= danio;
+        animacion.SetBool("recibeDaño", true);
+        recibiendodaño = true;
+        timeRemainingDaño = timeAnimedaño;
+
+
+
+        if (vida > 0)
+        {
+            vida -= danio;
+            animacion.SetInteger("vida", vida);
+        }
+
         sound.clip = sonidoDaño;
         sound.Play();
 
@@ -144,10 +151,9 @@ public class Player : MonoBehaviour
         }
         //Activar secuencia de recibir daño.
         recibiendodaño = true;
+
         
-        if(vida <= 0)
-        {
-            //Lanzamos secuencia de muerte.
-        }
     }
+
+
 }

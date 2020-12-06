@@ -5,6 +5,8 @@ using UnityEngine;
 public class DirectorGame : MonoBehaviour
 {
     public GameObject jugador;
+    public GameObject[] vidas;
+
     private Player scriptjugador;
     private int vidaMostrada;
     
@@ -13,18 +15,27 @@ public class DirectorGame : MonoBehaviour
     {
         scriptjugador = jugador.GetComponent<Player>();
         vidaMostrada = scriptjugador.vida;
+        MostrarVida(vidaMostrada);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(scriptjugador.vida != vidaMostrada)
+        {
+            MostrarVida(scriptjugador.vida);
+            vidaMostrada = scriptjugador.vida;
+        }
     }
 
 
     void MostrarVida(int vida) {
 
-
+        if(vida < vidaMostrada) 
+            for(int i = vida ; i < vidaMostrada; i++)
+            {
+                vidas[i].SetActive(false);
+            }
 
 
     }
