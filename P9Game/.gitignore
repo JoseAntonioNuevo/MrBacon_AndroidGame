@@ -1,0 +1,11 @@
+/P9Game/Temp
+/P9Game/Library
+/P9Game/Obj
+/P9Game/UnityGenerated
+/P9Game/Build
+/P9Game/Builds
+/P9Game/*.sln
+/P9Game/Assembly-CSharp.csproj
+/P9Game/*.suo
+/P9Game/*.user
+/P9Game/*.userprefs
