@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,10 @@ public class DirectorGame : MonoBehaviour
     public GameObject[] vidas;
 
     public string nombreplayer = "MrBeacon";
-    public int score;
+    public int maxscore;
     public int level;
+    public int score;
+    private DateTime timestartlevel;
 
     private Player scriptjugador;
     private int vidaMostrada;
