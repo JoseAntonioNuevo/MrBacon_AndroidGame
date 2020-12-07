@@ -7,6 +7,10 @@ public class DirectorGame : MonoBehaviour
     public GameObject jugador;
     public GameObject[] vidas;
 
+    public string nombreplayer = "MrBeacon";
+    public int score;
+    public int level;
+
     private Player scriptjugador;
     private int vidaMostrada;
     
