@@ -1015,6 +1015,31 @@ PrefabInstance:
       propertyPath: "timeAnimeda\xF1o"
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: posicionX
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeMaxOfEscudo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: limiteInicioEscudo
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeRecargaEscudoPorSegundo
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: disparoActivo
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5917469918687954507, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1079,6 +1104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Simulated
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954511, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e63528d4cfe37094a896a95a23d990f1, type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4354456549848024455}
   - component: {fileID: 6120341252358009811}
   - component: {fileID: 1345809173741228866}
+  - component: {fileID: 7430049266143189034}
   m_Layer: 0
   m_Name: Meteorito
   m_TagString: Meteorito
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3f11afb97c0efb94b8304e991141c530, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.65, y: 2.5}
@@ -96,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.13
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 180
   m_GravityScale: 0
@@ -134,6 +135,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meteor: {fileID: 0}
-  speed: 3.15
+  speed: 1.2
   "da\xF1o": 1
   elementoActivado: 0
+  timeToDisallowColisionAfterDead: 0.3
+--- !u!95 &7430049266143189034
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304417693060074308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9e3ea44ea86e1f45852dab59544a06d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

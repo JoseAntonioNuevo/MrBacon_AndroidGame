@@ -36,7 +36,10 @@ public class DirectorGame : MonoBehaviour
             {
                 vidas[i].SetActive(false);
             }
-
-
+        else
+            for (int i = vida; i < vidaMostrada; i++)
+            {
+                vidas[i].SetActive(false);
+            }
     }
 }

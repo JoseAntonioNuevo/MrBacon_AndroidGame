@@ -8,12 +8,14 @@ public class movimiento : MonoBehaviour
     public float speed = 1f;
     public int daño;
     public bool elementoActivado;//Determina si el elemento puede hacer daño.
-
+    public float timeToDisallowColisionAfterDead = 0.3f;
     Transform destructor;
     Vector3 localScale;
     Rigidbody2D rb;
+    CircleCollider2D col;
+    private bool isCoroutineExecuting;
 
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class movimiento : MonoBehaviour
         localScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
         destructor = GameObject.Find("destructorLeft").GetComponent<Transform>();
-    
+        col = GetComponent<CircleCollider2D>();
         this.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
@@ -39,7 +41,19 @@ public class movimiento : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+
+        if (!elementoActivado) {
+            if(timeToDisallowColisionAfterDead > 0)
+            {
+                timeToDisallowColisionAfterDead -= Time.deltaTime;
+            }else{
+                if (!col.isTrigger)
+                    col.isTrigger = true;
+            }
+        }
     }
+
 
 
 }

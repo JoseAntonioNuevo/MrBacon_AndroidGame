@@ -75,8 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7611658925278979398, guid: 9e8e9158d9c2da944b4feb37f68c54c0,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 5.26, y: 2.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5917469918687954505
@@ -101,15 +100,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 14
   posicionX: 0.1
-  margenDechoquePantalla: 0.1
   vida: 0
   timeOfRayo: 0
   timeOfEscudo: 0
+  "timeAnimeda\xF1o": 0
   limitRayo: 0
   limitEscudo: 0
   escudoActivo: 0
   disparoActivo: 0
-  timeRemaining: 0
   "sonidoDa\xF1o": {fileID: 8300000, guid: 137c86254994b74449019ebce5c52cf1, type: 3}
   sonidoMotivaccion: {fileID: 8300000, guid: c331be8a40df2dd4caa6cd724c1f0617, type: 3}
   "recibiendoda\xF1o": 0

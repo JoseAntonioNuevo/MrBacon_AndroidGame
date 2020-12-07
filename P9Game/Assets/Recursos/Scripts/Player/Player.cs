@@ -12,10 +12,15 @@ public class Player : MonoBehaviour
 
 
     public float timeOfRayo;
-    public float timeOfEscudo;
+
+
+    public float timeMaxOfEscudo;   //El tiempo maximo de uso del escudo.
+    public float limiteInicioEscudo;//El limite de inicio que permitirá activar el escudo.
+    public float timeRecargaEscudoPorSegundo;
+    public bool escudoActivado;
+
+
     public float timeAnimedaño;
-
-
     public float limitRayo;
     public float limitEscudo;
 
@@ -29,8 +34,12 @@ public class Player : MonoBehaviour
     public bool recibiendodaño;
 
 
+
+
+
     float timeRemaining;
     float timeRemainingDaño;
+    public float timeRemainingEscudo;
     float inputaxyY; //entrada del jugador. 
     Camera mainCamera;
     Vector3 posicionVentana;
@@ -41,6 +50,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        timeRemainingEscudo = timeMaxOfEscudo;
         escudoActivo = false;
         disparoActivo = false;
         mainCamera = Camera.main.GetComponent<Camera>();
@@ -49,18 +59,24 @@ public class Player : MonoBehaviour
         animacion = GetComponent<Animator>();
         animacion.SetInteger("vida", vida);
     }
+
+
     // Update is called once per frame
     void Update()
     {
-        Movimiento();
+        if(vida != 0)
+            Movimiento();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.tag == "Meteorito"){
             if (collision.gameObject.GetComponent<movimiento>().elementoActivado)
             {
-            collision.gameObject.GetComponent<movimiento>().elementoActivado = false;
+                collision.gameObject.GetComponent<movimiento>().elementoActivado = false;
                 Recibirdano(collision.gameObject.GetComponent<movimiento>().daño);
+                collision.gameObject.GetComponent<Animator>().SetBool("destroy", true);
                 //Destroy(collision.gameObject);
             }
         }
@@ -80,17 +96,15 @@ public class Player : MonoBehaviour
             ActiveRotary = true;
             timeRemaining = 0.8f;
         }
-        
+
+
+
+        DisparoEscudos();
 
         TimerRotary();//Función que ejecuta la logica de temporizadores.
 
         if (transform.rotation.z != 0)
             transform.Rotate(new Vector3(0, 0, transform.rotation.z *-1) * Time.deltaTime * 500f);
-   
-/*
-        if(animacion.GetBool("recibeDaño"))
-            animacion.SetBool("recibeDaño", false);
-*/
 
         posicionVentana = mainCamera.WorldToViewportPoint(transform.position);
         posicionVentana.x = posicionX;
@@ -129,6 +143,9 @@ public class Player : MonoBehaviour
 
     private void Recibirdano(int danio)
     {
+        if (escudoActivado)
+            return;
+
         animacion.SetBool("recibeDaño", true);
         recibiendodaño = true;
         timeRemainingDaño = timeAnimedaño;
@@ -138,9 +155,11 @@ public class Player : MonoBehaviour
         if (vida > 0)
         {
             vida -= danio;
-            animacion.SetInteger("vida", vida);
+        }else{
+            rigi.simulated = false;
         }
 
+        animacion.SetInteger("vida", vida);
         sound.clip = sonidoDaño;
         sound.Play();
 
@@ -156,4 +175,37 @@ public class Player : MonoBehaviour
     }
 
 
+
+
+    private void DisparoEscudos() {
+
+        if (timeRemainingEscudo > limiteInicioEscudo) {
+            escudoActivado = Input.GetKey(KeyCode.Space);
+
+        } else {
+
+            if (escudoActivado &&( timeRemainingEscudo <= 0  || !Input.GetKey(KeyCode.Space)))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            {
+                escudoActivado = false;
+            }
+        }
+
+        if (escudoActivado != animacion.GetBool("escudoActivado"))
+            animacion.SetBool("escudoActivado", escudoActivado);
+
+        //Logica de calculo de tiempo,
+        if (escudoActivado)
+        {//Resta tiempo
+            timeRemainingEscudo -= Time.deltaTime;
+        } else{
+            //Si no se encuentra a tope, le sumamos
+            if (timeRemainingEscudo < timeMaxOfEscudo)
+                timeRemainingEscudo += timeRecargaEscudoPorSegundo * Time.deltaTime;
+                
+        }
+
+        // if(es)
+
+
+    }
 }
