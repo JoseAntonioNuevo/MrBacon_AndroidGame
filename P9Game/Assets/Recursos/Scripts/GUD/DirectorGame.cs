@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +12,17 @@ public class DirectorGame : MonoBehaviour
 
     public GameObject SliderEscudo;
     private Slider escudoView;
-
-
    // public GameObject SliderLaser;
 
     private Player scriptjugador;
     private int vidaMostrada;
+
+    public string nombreplayer = "MrBeacon";
+    public int maxscore;
+    public int level;
+    public int score;
+    private DateTime timestartlevel;
+
 
     void Start()
     {
