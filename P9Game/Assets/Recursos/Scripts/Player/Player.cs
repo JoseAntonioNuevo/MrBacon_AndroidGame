@@ -85,9 +85,31 @@ public class Player : MonoBehaviour
 
 
     }
+
+    public void MoveUp() {
+      
+        transform.Translate(0, 1f* Time.deltaTime * velocidad, 0);
+    }
+    public void MoveDown()
+    {
+        transform.Translate(0, -1* Time.deltaTime * velocidad, 0);
+    }
+
+    public void ActivarEscudo() {
+
+    }
+
+    public void ActivarDisparo() {
+
+    }
+
     private void Movimiento()
     {
         inputaxyY = Input.GetAxis("Vertical");
+
+
+        //si el boton up esta activo inputxy+1
+
 
         if(inputaxyY != 0)
             transform.Translate(0, inputaxyY * Time.deltaTime * velocidad, 0);

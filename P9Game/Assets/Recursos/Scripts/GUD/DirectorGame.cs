@@ -24,6 +24,9 @@ public class DirectorGame : MonoBehaviour
     private DateTime timestartlevel;
 
 
+    private bool MouseUpActive;
+    private bool MouseDownActive;
+
     void Start()
     {
         scriptjugador = jugador.GetComponent<Player>();
@@ -46,6 +49,12 @@ public class DirectorGame : MonoBehaviour
             vidaMostrada = scriptjugador.vida;
         }
         RefescarBarras();
+
+        if (MouseUpActive)
+            scriptjugador.MoveUp();
+
+        if (MouseDownActive)
+            scriptjugador.MoveDown();
     }
 
 
@@ -66,5 +75,20 @@ public class DirectorGame : MonoBehaviour
 
     void RefescarBarras() {
         escudoView.value = scriptjugador.timeRemainingEscudo;
+    }
+
+
+    public void MoveUpON() { MouseUpActive = true; }
+
+    public void MoveUpOFF() { MouseUpActive = false; }
+
+    public void MoveDownON() { MouseDownActive = true; }
+    public void MoveDownOFF() { MouseDownActive = false; }
+
+    public void MoveDown() { scriptjugador.MoveDown(); }
+    public void ActivarDisparo() { }
+
+    public void ActivarEscudo() {
+
     }
 }

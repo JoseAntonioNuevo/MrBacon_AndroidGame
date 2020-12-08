@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5917469918687954508}
   m_LocalRotation: {x: -0, y: -0, z: 0.0044341893, w: 0.9999902}
-  m_LocalPosition: {x: -6.84, y: -0.11, z: 0}
+  m_LocalPosition: {x: -6.97243, y: 14.822419, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,10 @@ MonoBehaviour:
   posicionX: 0.1
   vida: 0
   timeOfRayo: 0
-  timeOfEscudo: 0
+  timeMaxOfEscudo: 0
+  limiteInicioEscudo: 0
+  timeRecargaEscudoPorSegundo: 0
+  escudoActivado: 0
   "timeAnimeda\xF1o": 0
   limitRayo: 0
   limitEscudo: 0
@@ -111,6 +114,7 @@ MonoBehaviour:
   "sonidoDa\xF1o": {fileID: 8300000, guid: 137c86254994b74449019ebce5c52cf1, type: 3}
   sonidoMotivaccion: {fileID: 8300000, guid: c331be8a40df2dd4caa6cd724c1f0617, type: 3}
   "recibiendoda\xF1o": 0
+  timeRemainingEscudo: 0
 --- !u!50 &5917469918687954511
 Rigidbody2D:
   serializedVersion: 4
