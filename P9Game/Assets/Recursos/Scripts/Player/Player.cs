@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -171,7 +172,36 @@ public class Player : MonoBehaviour
         //Activar secuencia de recibir daño.
         recibiendodaño = true;
 
-        
+
+        //Pasar a escena gamer over al perder todas las vidas
+        if (vida < 1)
+        {
+            
+            Scene scenes = SceneManager.GetActiveScene();
+            string scene = scenes.name;
+
+            switch (scene)
+            {
+                case "Nivel 0":
+                    SceneManager.LoadScene("GameOver");
+                    break;
+                case "Nivel 1":
+                    SceneManager.LoadScene("GameOver2");
+                    break;
+                case "Nivel 2":
+                    SceneManager.LoadScene("GameOver3");
+                    break;
+                case "Nivel 3":
+                    SceneManager.LoadScene("GameOver4");
+                    break;
+                default:
+                    SceneManager.LoadScene("Menu");
+                    break;
+            }
+
+            
+        }
+
     }
 
 
