@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 
 
     public float timeOfRayo;
+    public float timeRemainingRayo;
+    public float timeMaxOfRayo;
+    public float timeRecargaRayoPorSegundo;
 
 
     public float timeMaxOfEscudo;   //El tiempo maximo de uso del escudo.
@@ -95,12 +98,70 @@ public class Player : MonoBehaviour
         transform.Translate(0, -0.5f* Time.deltaTime * velocidad, 0);
     }
 
-    public void ActivarEscudo() {
+    public void ActivarEscudo()
+    {
+        if (timeRemainingEscudo > limiteInicioEscudo)
+        {
+            escudoActivado = true;
+
+        }
+        else
+        {
+
+            if (escudoActivado && (timeRemainingEscudo <= 0))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            {
+                escudoActivado = false;
+            }
+        }
+
+        if (escudoActivado != animacion.GetBool("escudoActivado"))
+            animacion.SetBool("escudoActivado", escudoActivado);
+
+        //Logica de calculo de tiempo,
+        if (escudoActivado)
+        {//Resta tiempo
+            timeRemainingEscudo -= Time.deltaTime;
+        }
+        else
+        {
+            //Si no se encuentra a tope, le sumamos
+            if (timeRemainingEscudo < timeMaxOfEscudo)
+                timeRemainingEscudo += timeRecargaEscudoPorSegundo * Time.deltaTime;
+
+        }
 
     }
 
     public void ActivarDisparo() {
+        if (timeOfRayo > limitRayo)
+        {
+            disparoActivo = true;
 
+        }
+        else
+        {
+
+            if (disparoActivo && (limitRayo <= 0))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            {
+                disparoActivo = false;
+            }
+        }
+
+        if (disparoActivo != animacion.GetBool("DisparoActivado"))
+            animacion.SetBool("DisparoActivado", disparoActivo);
+
+        //Logica de calculo de tiempo,
+        if (disparoActivo)
+        {//Resta tiempo
+            timeRemainingRayo -= Time.deltaTime;
+        }
+        else
+        {
+            //Si no se encuentra a tope, le sumamos
+            if (timeRemainingRayo < timeMaxOfRayo)
+                timeRemainingRayo += timeRecargaRayoPorSegundo * Time.deltaTime;
+
+        }
     }
 
     private void Movimiento()
@@ -229,7 +290,7 @@ public class Player : MonoBehaviour
 
 
 
-    private void DisparoEscudos() {
+    public void DisparoEscudos() {
 
         if (timeRemainingEscudo > limiteInicioEscudo) {
             escudoActivado = Input.GetKey(KeyCode.Space);
