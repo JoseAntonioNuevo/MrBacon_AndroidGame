@@ -1,0 +1,25 @@
+[]1- La carpeta animacion final, hay que meter las animaciones en las carpetas que corresponden.
+[]2- Añadir los sprites de todos los enemigos.
+[]3- Hud
+	[]-Añadir sistema de visualizción de vida.
+	[]-Añadir escudo del sistema.
+	[X]-Sistema de vida.
+
+[]4-Añadir botones que solo se visualizarán en versiones android para disparar y activar escudo
+[]5-Crear la logica de las animaciones de los personajes.
+[]6- player.
+	[]-Crear disparo laser.
+	[X]-Crear activación del escudo y interactuar con no quitar vida.
+	[]-Aplicar logica de tiempo para la recuperación de vida y escudo.
+[]7-Crear powerups.
+	[]-Crear los objetos.
+	[]-Añadir las texturas
+	[]-Añadir los sprites.
+	[]-Añadir choque con player y sumaotorio de vida o escudo.
+	
+[]8-Creación de menu y logicas.
+[]9-Aplicar carga y guardado de menus.
+[]10- Importar al proyecto final los datos de los enemigos.
+[]11- Añadir sprites enemigos y revisar script.
+[]12- Añadir logica enemigo al script game directo que controla la gui y tambien la partida, par que cuando el player mate al jugador pase de nivel.
+[]13- Crear sistema de score.
