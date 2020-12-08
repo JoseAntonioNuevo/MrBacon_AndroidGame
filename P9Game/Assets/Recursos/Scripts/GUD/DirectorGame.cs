@@ -26,6 +26,8 @@ public class DirectorGame : MonoBehaviour
 
     private bool MouseUpActive;
     private bool MouseDownActive;
+    private bool ButtonShieldActive;
+    private bool ButtonShootActive;
 
     void Start()
     {
@@ -55,6 +57,12 @@ public class DirectorGame : MonoBehaviour
 
         if (MouseDownActive)
             scriptjugador.MoveDown();
+
+        if (ButtonShieldActive)
+            scriptjugador.ActivarEscudo();
+
+        if (ButtonShootActive)
+            scriptjugador.ActivarDisparo();
     }
 
 
@@ -86,9 +94,11 @@ public class DirectorGame : MonoBehaviour
     public void MoveDownOFF() { MouseDownActive = false; }
 
     public void MoveDown() { scriptjugador.MoveDown(); }
-    public void ActivarDisparo() { }
+    public void ActivarDisparoON() { ButtonShootActive = true;  }
 
-    public void ActivarEscudo() {
+    public void ActivarDisparoOFF() { ButtonShootActive = false; }
 
-    }
+    public void ActivarEscudoON() { ButtonShieldActive = true; }
+
+    public void ActivarEscudoOFF() { ButtonShieldActive = false; }
 }
