@@ -88,11 +88,11 @@ public class Player : MonoBehaviour
 
     public void MoveUp() {
       
-        transform.Translate(0, 1f* Time.deltaTime * velocidad, 0);
+        transform.Translate(0, 0.5f* Time.deltaTime * velocidad, 0);
     }
     public void MoveDown()
     {
-        transform.Translate(0, -1* Time.deltaTime * velocidad, 0);
+        transform.Translate(0, -0.5f* Time.deltaTime * velocidad, 0);
     }
 
     public void ActivarEscudo() {
