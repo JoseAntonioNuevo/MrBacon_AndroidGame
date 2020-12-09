@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 51cfae46ef848f5489d8d7614acdafe3
+guid: 47ea5bd55e0e5354cb9706b4f4fdcd59
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5913346099082595553
-    second: Enemigo1_0
+      213: 5309309358067554708
+    second: Enemigo1-3_0
   - first:
-      213: -4827793162258978588
-    second: Enemigo1_1
+      213: -3529631211901741264
+    second: Enemigo1-3_1
   - first:
-      213: 9142366992024701434
-    second: Enemigo1_2
+      213: 6219711405933040369
+    second: Enemigo1-3_2
   - first:
-      213: -8441879757398508280
-    second: Enemigo1_3
+      213: -2556250617761191494
+    second: Enemigo1-3_3
+  - first:
+      213: 7096396792016570244
+    second: Enemigo1-3_4
+  - first:
+      213: 6479024984108355044
+    second: Enemigo1-3_5
+  - first:
+      213: -4205906875860414575
+    second: Enemigo1-3_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,10 +82,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -145,10 +154,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -171,7 +180,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemigo1_0
+      name: Enemigo1-3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f137d3a9d039feda0800000000000000
-      internalID: -5913346099082595553
+      spriteID: 49916423bb47ea940800000000000000
+      internalID: 5309309358067554708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo1_1
+      name: Enemigo1-3_1
       rect:
         serializedVersion: 2
         x: 648
@@ -206,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e86e7a92bb300db0800000000000000
-      internalID: -4827793162258978588
+      spriteID: 03717721d1b340fc0800000000000000
+      internalID: -3529631211901741264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo1_2
+      name: Enemigo1-3_2
       rect:
         serializedVersion: 2
         x: 1296
@@ -227,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af983e5475630ee70800000000000000
-      internalID: 9142366992024701434
+      spriteID: 1f2951cf19ad05650800000000000000
+      internalID: 6219711405933040369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemigo1_3
+      name: Enemigo1-3_3
       rect:
         serializedVersion: 2
         x: 1944
@@ -248,8 +257,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d73bf661b68da80800000000000000
-      internalID: -8441879757398508280
+      spriteID: ab9a8735b9f568cd0800000000000000
+      internalID: -2556250617761191494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemigo1-3_4
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 648
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4878e55b8477b7260800000000000000
+      internalID: 7096396792016570244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemigo1-3_5
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 0
+        width: 648
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4edc8ac45ee1ae950800000000000000
+      internalID: 6479024984108355044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemigo1-3_6
+      rect:
+        serializedVersion: 2
+        x: 3888
+        y: 0
+        width: 648
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f87f1fafd91a5c0800000000000000
+      internalID: -4205906875860414575
       vertices: []
       indices: 
       edges: []

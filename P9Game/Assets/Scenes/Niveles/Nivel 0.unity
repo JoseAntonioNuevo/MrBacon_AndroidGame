@@ -45116,17 +45116,37 @@ PrefabInstance:
     - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: limiteInicioEscudo
-      value: 0.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: timeRecargaEscudoPorSegundo
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: disparoActivo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: limitEscudo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeMaxOfRayo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: limiteInicioRayo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeRecargaRayoPorSegundo
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5917469918687954507, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}

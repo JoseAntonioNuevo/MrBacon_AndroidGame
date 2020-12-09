@@ -12,7 +12,8 @@ public class DirectorGame : MonoBehaviour
 
     public GameObject SliderEscudo;
     private Slider escudoView;
-   // public GameObject SliderLaser;
+    public GameObject SliderLaser;
+    private Slider laserView;
 
     private Player scriptjugador;
     private int vidaMostrada;
@@ -35,10 +36,13 @@ public class DirectorGame : MonoBehaviour
         vidaMostrada = scriptjugador.vida;
         MostrarVida(vidaMostrada);
         escudoView = SliderEscudo.GetComponent<Slider>();
+        laserView = SliderLaser.GetComponent<Slider>();
 
-
-        escudoView.minValue = 0;
+        escudoView.minValue = scriptjugador.limiteInicioEscudo;
         escudoView.maxValue = scriptjugador.timeMaxOfEscudo;
+
+        laserView.minValue = scriptjugador.limiteInicioRayo;
+        laserView.maxValue = scriptjugador.timeMaxOfRayo;
 
     }
 
@@ -57,12 +61,6 @@ public class DirectorGame : MonoBehaviour
 
         if (MouseDownActive)
             scriptjugador.MoveDown();
-
-        if (ButtonShieldActive)
-            scriptjugador.ActivarEscudo();
-
-        if (ButtonShootActive)
-            scriptjugador.ActivarDisparo();
     }
 
 
@@ -83,6 +81,7 @@ public class DirectorGame : MonoBehaviour
 
     void RefescarBarras() {
         escudoView.value = scriptjugador.timeRemainingEscudo;
+        laserView.value = scriptjugador.timeRemainingRayo;
     }
 
 
@@ -94,11 +93,11 @@ public class DirectorGame : MonoBehaviour
     public void MoveDownOFF() { MouseDownActive = false; }
 
     public void MoveDown() { scriptjugador.MoveDown(); }
-    public void ActivarDisparoON() { ButtonShootActive = true;  }
+    public void ActivarDisparoON() { scriptjugador.ActivarDisparo(true); }
 
-    public void ActivarDisparoOFF() { ButtonShootActive = false; }
+    public void ActivarDisparoOFF() { scriptjugador.ActivarDisparo(false); }
 
-    public void ActivarEscudoON() { ButtonShieldActive = true; }
+    public void ActivarEscudoON() { scriptjugador.ActivarEscudo(true); }
 
-    public void ActivarEscudoOFF() { ButtonShieldActive = false; }
+    public void ActivarEscudoOFF() { scriptjugador.ActivarEscudo(false); }
 }

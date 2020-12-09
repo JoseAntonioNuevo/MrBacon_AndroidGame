@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meteor: {fileID: 0}
-  speed: 1.2
+  speed: 3.15
   "da\xF1o": 1
   elementoActivado: 0
   timeToDisallowColisionAfterDead: 0.3

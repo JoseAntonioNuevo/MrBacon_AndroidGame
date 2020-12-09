@@ -12,10 +12,14 @@ public class Player : MonoBehaviour
     public int vida;
 
 
+
     public float timeOfRayo;
-    public float timeRemainingRayo;
+
+
     public float timeMaxOfRayo;
+    public float limiteInicioRayo;
     public float timeRecargaRayoPorSegundo;
+    public float timeRemainingRayo;
 
 
     public float timeMaxOfEscudo;   //El tiempo maximo de uso del escudo.
@@ -25,12 +29,14 @@ public class Player : MonoBehaviour
 
 
     public float timeAnimedaño;
+
     public float limitRayo;
     public float limitEscudo;
-
     public bool escudoActivo;
     public bool disparoActivo;
 
+    private bool BtnEscudoActivo;
+    private bool BtnDisparoActivo;
 
 
     public AudioClip sonidoDaño;
@@ -38,19 +44,18 @@ public class Player : MonoBehaviour
     public bool recibiendodaño;
 
 
-
-
-
+    public float timeRemainingEscudo;
     float timeRemaining;
     float timeRemainingDaño;
-    public float timeRemainingEscudo;
+
+
     float inputaxyY; //entrada del jugador. 
     Camera mainCamera;
     Vector3 posicionVentana;
-    private Rigidbody2D rigi;
-    private bool ActiveRotary;
+    Rigidbody2D rigi;
+    bool ActiveRotary;
     AudioSource sound;
-    private Animator animacion;
+    Animator animacion;
 
     void Start()
     {
@@ -84,13 +89,9 @@ public class Player : MonoBehaviour
                 //Destroy(collision.gameObject);
             }
         }
-
-
-
     }
 
     public void MoveUp() {
-      
         transform.Translate(0, 0.5f* Time.deltaTime * velocidad, 0);
     }
     public void MoveDown()
@@ -98,70 +99,13 @@ public class Player : MonoBehaviour
         transform.Translate(0, -0.5f* Time.deltaTime * velocidad, 0);
     }
 
-    public void ActivarEscudo()
+    public void ActivarEscudo(bool active)
     {
-        if (timeRemainingEscudo > limiteInicioEscudo)
-        {
-            escudoActivado = true;
-
-        }
-        else
-        {
-
-            if (escudoActivado && (timeRemainingEscudo <= 0))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
-            {
-                escudoActivado = false;
-            }
-        }
-
-        if (escudoActivado != animacion.GetBool("escudoActivado"))
-            animacion.SetBool("escudoActivado", escudoActivado);
-
-        //Logica de calculo de tiempo,
-        if (escudoActivado)
-        {//Resta tiempo
-            timeRemainingEscudo -= Time.deltaTime;
-        }
-        else
-        {
-            //Si no se encuentra a tope, le sumamos
-            if (timeRemainingEscudo < timeMaxOfEscudo)
-                timeRemainingEscudo += timeRecargaEscudoPorSegundo * Time.deltaTime;
-
-        }
-
+        BtnEscudoActivo = active;
     }
 
-    public void ActivarDisparo() {
-        if (timeOfRayo > limitRayo)
-        {
-            disparoActivo = true;
-
-        }
-        else
-        {
-
-            if (disparoActivo && (limitRayo <= 0))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
-            {
-                disparoActivo = false;
-            }
-        }
-
-        if (disparoActivo != animacion.GetBool("DisparoActivado"))
-            animacion.SetBool("DisparoActivado", disparoActivo);
-
-        //Logica de calculo de tiempo,
-        if (disparoActivo)
-        {//Resta tiempo
-            timeRemainingRayo -= Time.deltaTime;
-        }
-        else
-        {
-            //Si no se encuentra a tope, le sumamos
-            if (timeRemainingRayo < timeMaxOfRayo)
-                timeRemainingRayo += timeRecargaRayoPorSegundo * Time.deltaTime;
-
-        }
+    public void ActivarDisparo(bool active) {
+        BtnDisparoActivo = active;
     }
 
     private void Movimiento()
@@ -195,6 +139,7 @@ public class Player : MonoBehaviour
         posicionVentana.y = Mathf.Clamp(posicionVentana.y,0.075f,0.85f);
         transform.position = mainCamera.ViewportToWorldPoint(posicionVentana);
     }
+
     private void TimerRotary() {
 
         if(ActiveRotary)
@@ -222,8 +167,6 @@ public class Player : MonoBehaviour
                 recibiendodaño = false;
             }
     }
-
-
 
     private void Recibirdano(int danio)
     {
@@ -287,22 +230,21 @@ public class Player : MonoBehaviour
 
     }
 
-
-
-
     public void DisparoEscudos() {
 
         if (timeRemainingEscudo > limiteInicioEscudo) {
-            escudoActivado = Input.GetKey(KeyCode.Space);
+
+            
+            escudoActivado = Input.GetKey(KeyCode.Space) || BtnEscudoActivo  ;
 
         } else {
 
-            if (escudoActivado &&( timeRemainingEscudo <= 0  || !Input.GetKey(KeyCode.Space)))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            if (escudoActivado &&( timeRemainingEscudo <= limiteInicioEscudo || !(Input.GetKey(KeyCode.Space) || BtnEscudoActivo)))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
             {
                 escudoActivado = false;
+                timeRemainingEscudo = 0;
             }
         }
-
         if (escudoActivado != animacion.GetBool("escudoActivado"))
             animacion.SetBool("escudoActivado", escudoActivado);
 
@@ -317,8 +259,38 @@ public class Player : MonoBehaviour
                 
         }
 
-        // if(es)
 
+        if (timeRemainingRayo > limiteInicioRayo)
+        {
+            disparoActivo = Input.GetKey(KeyCode.LeftControl) || BtnDisparoActivo;
+
+        }
+        else
+        {
+
+            if (disparoActivo && (timeRemainingRayo <= limiteInicioRayo || !(Input.GetKey(KeyCode.LeftControl) || BtnDisparoActivo )))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            {
+                disparoActivo = false;
+                timeRemainingRayo = 0;
+            }
+        }
+
+        if (disparoActivo != animacion.GetBool("rayoActivo"))
+            animacion.SetBool("rayoActivo", disparoActivo);
+
+
+        //Logica de calculo de tiempo,
+        if (disparoActivo)
+        {//Resta tiempo
+            timeRemainingRayo -= Time.deltaTime;
+        }
+        else
+        {
+            //Si no se encuentra a tope, le sumamos
+            if (timeRemainingRayo < timeMaxOfRayo)
+                timeRemainingRayo += timeRecargaRayoPorSegundo * Time.deltaTime;
+
+        }
 
     }
 }
