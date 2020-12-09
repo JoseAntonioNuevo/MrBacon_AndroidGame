@@ -14673,7 +14673,7 @@ PrefabInstance:
     - target: {fileID: 794206733802030851, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.4000101
+      value: -0.40001106
       objectReference: {fileID: 0}
     - target: {fileID: 794206734009201935, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
@@ -14683,7 +14683,7 @@ PrefabInstance:
     - target: {fileID: 794206734009201935, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.4000101
+      value: -0.40001106
       objectReference: {fileID: 0}
     - target: {fileID: 794206734411609778, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
@@ -14813,7 +14813,7 @@ PrefabInstance:
     - target: {fileID: 794206734822824400, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.4000101
+      value: -0.40001106
       objectReference: {fileID: 0}
     - target: {fileID: 794206734852371858, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
@@ -14973,7 +14973,7 @@ PrefabInstance:
     - target: {fileID: 7655123911371787231, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.7167587
+      value: 2.7167664
       objectReference: {fileID: 0}
     - target: {fileID: 7854566022515866477, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
@@ -48737,6 +48737,12 @@ PrefabInstance:
       propertyPath: Priority
       value: 239
       objectReference: {fileID: 0}
+    - target: {fileID: 708576363747051215, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 44b89bd3fadcb2e4caea3de739d5acdc,
+        type: 2}
     - target: {fileID: 5917469918687954504, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: m_Sprite

@@ -6,15 +6,25 @@ public class Proyectil : MonoBehaviour
 {
     public float dañoaEnemigo;
     public float velocidad;
+    public AudioClip Inicio;
+
     Vector3 localScale;
 
     Transform destructor;
-    
+    AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
         destructor = GameObject.Find("destructorRight").GetComponent<Transform>();
+       
+        if (GetComponent<AudioSource>() != null)
+        {
+            sound = GetComponent<AudioSource>();
+            sound.clip = Inicio;
+            sound.Play();
+        }
+
     }
 
     // Update is called once per frame
@@ -56,6 +66,8 @@ public class Proyectil : MonoBehaviour
 
             collision.gameObject.GetComponent<IaBasic>().QuitarVida(dañoaEnemigo);
             Destroy(this.gameObject);
+            
+            
         }
 
 

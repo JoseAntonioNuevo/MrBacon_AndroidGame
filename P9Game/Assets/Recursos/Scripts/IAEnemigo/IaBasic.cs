@@ -15,10 +15,11 @@ public class IaBasic : MonoBehaviour
     Vector3 posicionVentana;
     Rigidbody2D rg;
 
-    void Start()
+void Start()
     {
         mainCamera = Camera.main.GetComponent<Camera>();
         rg = GetComponent<Rigidbody2D>();
+
     }
 
 
