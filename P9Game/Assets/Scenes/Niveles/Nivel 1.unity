@@ -15304,6 +15304,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5529337794361825371, guid: af1f34a095bd6e74084243bca84fc783,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c4aa1d65fb0d454b9bc86ef31c5c90b, type: 3}
     - target: {fileID: 6709633964674691798, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -50095,6 +50100,31 @@ PrefabInstance:
       propertyPath: disparoActivo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeOfRayo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: limiteInicioRayo
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeMaxOfRayo
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: timeRecargaRayoPorSegundo
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917469918687954505, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: sonidoMotivaccion
+      value: 
+      objectReference: {fileID: 8300000, guid: e357fcea3e5ab0e4d8e4630411896d25, type: 3}
     - target: {fileID: 5917469918687954507, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: m_LocalPosition.x

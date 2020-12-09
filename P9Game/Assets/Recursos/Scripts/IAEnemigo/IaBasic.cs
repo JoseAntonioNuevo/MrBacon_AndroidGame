@@ -55,11 +55,11 @@ public class IaBasic : MonoBehaviour
 
 
         //posicionVentana.y = Mathf.Clamp(posicionVentana.y, 0.075f, 0.85f);
-        if (posicionVentana.y < 0.070f)
-            rg.AddForce(new Vector2(0, 10));
+        if (posicionVentana.y < 0.060f)
+            rg.AddForce(new Vector2(0, 20));
 
-        if (posicionVentana.y > 0.80f)
-            rg.AddForce(new Vector2(0, -10));
+        if (posicionVentana.y > 0.70f)
+            rg.AddForce(new Vector2(0, -20));
         //transform.position = mainCamera.ViewportToWorldPoint(posicionVentana);
     }
 

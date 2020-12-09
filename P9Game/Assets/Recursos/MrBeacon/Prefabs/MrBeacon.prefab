@@ -102,6 +102,10 @@ MonoBehaviour:
   posicionX: 0.1
   vida: 0
   timeOfRayo: 0
+  timeMaxOfRayo: 0
+  limiteInicioRayo: 0
+  timeRecargaRayoPorSegundo: 0
+  timeRemainingRayo: 0
   timeMaxOfEscudo: 0
   limiteInicioEscudo: 0
   timeRecargaEscudoPorSegundo: 0
@@ -111,8 +115,9 @@ MonoBehaviour:
   limitEscudo: 0
   escudoActivo: 0
   disparoActivo: 0
-  "sonidoDa\xF1o": {fileID: 8300000, guid: 137c86254994b74449019ebce5c52cf1, type: 3}
+  "sonidoDa\xF1o": {fileID: 8300000, guid: 1d2cf30f391e8874faac1c566aceb854, type: 3}
   sonidoMotivaccion: {fileID: 8300000, guid: c331be8a40df2dd4caa6cd724c1f0617, type: 3}
+  sonidoActiveScudo: {fileID: 8300000, guid: bb9f948a901437e4ebf933e9e9127c67, type: 3}
   "recibiendoda\xF1o": 0
   timeRemainingEscudo: 0
 --- !u!50 &5917469918687954511

@@ -41,8 +41,11 @@ public class Player : MonoBehaviour
 
     public AudioClip sonidoDaño;
     public AudioClip sonidoMotivaccion;
+    public AudioClip sonidoActiveScudo;
+
     public bool recibiendodaño;
 
+    //public GameObject laserPrefab;
 
     public float timeRemainingEscudo;
     float timeRemaining;
@@ -86,6 +89,8 @@ public class Player : MonoBehaviour
                 collision.gameObject.GetComponent<movimiento>().elementoActivado = false;
                 Recibirdano(collision.gameObject.GetComponent<movimiento>().daño);
                 collision.gameObject.GetComponent<Animator>().SetBool("destroy", true);
+
+                collision.gameObject.GetComponent<AudioSource>().Play();
                 //Destroy(collision.gameObject);
             }
         }
@@ -203,29 +208,6 @@ public class Player : MonoBehaviour
         if (vida < 1)
         {
             
-            Scene scenes = SceneManager.GetActiveScene();
-            string scene = scenes.name;
-
-            switch (scene)
-            {
-                case "Nivel 0":
-                    SceneManager.LoadScene("GameOver");
-                    break;
-                case "Nivel 1":
-                    SceneManager.LoadScene("GameOver2");
-                    break;
-                case "Nivel 2":
-                    SceneManager.LoadScene("GameOver3");
-                    break;
-                case "Nivel 3":
-                    SceneManager.LoadScene("GameOver4");
-                    break;
-                default:
-                    SceneManager.LoadScene("Menu");
-                    break;
-            }
-
-            
         }
 
     }
@@ -245,8 +227,15 @@ public class Player : MonoBehaviour
                 timeRemainingEscudo = 0;
             }
         }
+
+
         if (escudoActivado != animacion.GetBool("escudoActivado"))
+        {
             animacion.SetBool("escudoActivado", escudoActivado);
+            sound.clip = sonidoActiveScudo;
+            sound.Play();
+        }
+            
 
         //Logica de calculo de tiempo,
         if (escudoActivado)
@@ -293,4 +282,7 @@ public class Player : MonoBehaviour
         }
 
     }
+
+
+
 }

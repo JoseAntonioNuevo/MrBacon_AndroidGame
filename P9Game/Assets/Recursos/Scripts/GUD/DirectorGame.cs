@@ -31,6 +31,9 @@ public class DirectorGame : MonoBehaviour
     private bool ButtonShieldActive;
     private bool ButtonShootActive;
 
+    private bool ActiveFinGame;
+    private float timeRemaninActive;
+
     void Start()
     {
         scriptjugador = jugador.GetComponent<Player>();
@@ -54,6 +57,13 @@ public class DirectorGame : MonoBehaviour
         {
             MostrarVida(scriptjugador.vida);
             vidaMostrada = scriptjugador.vida;
+            if (scriptjugador.vida < 1)
+            {
+                ActiveFinGame = true;
+                GetComponent<AudioSource>().Stop();
+            }
+                
+
         }
         RefescarBarras();
 
@@ -62,6 +72,16 @@ public class DirectorGame : MonoBehaviour
 
         if (MouseDownActive)
             scriptjugador.MoveDown();
+
+        if (ActiveFinGame)
+        {
+            timeRemaninActive += Time.deltaTime;
+            if (timeRemaninActive > 2)
+                GameOver();
+        }
+           
+
+
     }
 
 
@@ -106,7 +126,27 @@ public class DirectorGame : MonoBehaviour
         SceneManager.LoadScene("LevelPassed");
     }
 
+    public void GameOver() {
 
+        Scene scenes = SceneManager.GetActiveScene();
+        string scene = scenes.name;
+
+        switch (scene)
+        {
+            case "Nivel 0":
+                SceneManager.LoadScene("GameOver");
+                break;
+            case "Nivel 1":
+                SceneManager.LoadScene("GameOver2");
+                break;
+            case "Nivel 2":
+                SceneManager.LoadScene("GameOver3");
+                break;
+            case "Nivel 3":
+                SceneManager.LoadScene("GameOver4");
+                break;
+        }
+    }
     public void MoveUpON() { MouseUpActive = true; }
 
     public void MoveUpOFF() { MouseUpActive = false; }
