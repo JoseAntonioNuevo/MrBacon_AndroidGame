@@ -46,7 +46,8 @@ public class DirectorGame : MonoBehaviour
     {
         scriptjugador = jugador.GetComponent<Player>();
 
-        scriptEnemigo = Enemigo.GetComponent<IaBasic>();
+        if(Enemigo != null)
+            scriptEnemigo = Enemigo.GetComponent<IaBasic>();
 
         vidaMostrada = scriptjugador.vida;
         MostrarVida(vidaMostrada);
@@ -89,6 +90,7 @@ public class DirectorGame : MonoBehaviour
             }
         }
 
+        if(Enemigo!= null)
         if (scriptEnemigo.vida < 1)
         {
             nextLevel();

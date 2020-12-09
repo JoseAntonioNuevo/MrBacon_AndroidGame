@@ -6,13 +6,13 @@ public class IaBasic : MonoBehaviour
 {
     Camera mainCamera;
     public float posicionX = 0f;
-    public float vida = 200;
+    public float vida;
 
     public bool recibeDaño;
     public float timeRemaninRecibeDaño;
     public GameObject PrefabExplosion;
 
-    Vector3 posicionVentana;
+    public Vector3 posicionVentana;
     Rigidbody2D rg;
 
 
@@ -21,6 +21,10 @@ public class IaBasic : MonoBehaviour
     Vector2 dispos;
     public float firerate = 0.2f;
     public float nextfire = 0.0f;
+    public float timeRemanin;
+
+    public float tiempoDisparoEntre;
+    public float TiempoDisparoHasta;
 
 
     void Start()
@@ -36,8 +40,8 @@ public class IaBasic : MonoBehaviour
         posicionVentana = mainCamera.WorldToViewportPoint(transform.position);
 
 
-        if (posicionVentana.y < 0.060f)
-            rg.AddForce(new Vector2(0, 20));
+        if (posicionVentana.y < 0.1f)
+            rg.AddForce(new Vector2(0, 30));
 
         if (posicionVentana.y > 0.70f)
             rg.AddForce(new Vector2(0, -20));
@@ -49,11 +53,19 @@ public class IaBasic : MonoBehaviour
                 recibeDaño = false;
         }
 
-        if (Input.GetKey(KeyCode.B) && Time.time > nextfire)
+
+        //
+
+
+        if (timeRemanin < 0)
         {
-            nextfire = Time.time + firerate;
+            timeRemanin = Random.Range(tiempoDisparoEntre, TiempoDisparoHasta);
             fire();
         }
+        else {
+            timeRemanin -= Time.deltaTime;
+        }
+
 
     }
 

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float velocidad = 14f;
     public float posicionX = 0f;
     public int vida;
-
+    public bool noMemuero;
 
 
     public float timeOfRayo;
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public AudioClip sonidoDaño;
     public AudioClip sonidoMotivaccion;
     public AudioClip sonidoActiveScudo;
-
+    
     public bool recibiendodaño;
 
     //public GameObject laserPrefab;
@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
     Animator animacion;
 
     public GameObject PrefabDisparo;
+    public GameObject PrefabExplosion;
+
     public float timeEntreDisparoYDisparo;
     float timeRemaninUltimoDisparo;
 
@@ -118,8 +120,9 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "disparo")
         {
-            vida -= 1;
-            collision.gameObject.GetComponent<AudioSource>().Play();
+            Recibirdano(1);
+            GameObject var = Instantiate(PrefabExplosion);
+            var.transform.position = this.transform.position + new Vector3(0,0,-1);
             Destroy(collision.gameObject);
         }
 
@@ -210,6 +213,9 @@ public class Player : MonoBehaviour
 
     private void Recibirdano(int danio)
     {
+        if (noMemuero)
+            return;
+
         if (escudoActivado)
             return;
 

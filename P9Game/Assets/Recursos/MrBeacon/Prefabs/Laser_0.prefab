@@ -143,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d0fb669a91a64c8b8b1cb14e2b50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1oaEnemigo": 1.5
+  "da\xF1oaEnemigo": 0.5
   velocidad: 8
+  Inicio: {fileID: 8300000, guid: 067927e25902f544f85743710ae3bf71, type: 3}
 --- !u!82 &3074524920861961029
 AudioSource:
   m_ObjectHideFlags: 0
@@ -156,8 +157,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 44b89bd3fadcb2e4caea3de739d5acdc,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 312d4c3ace1540b44b973d83577772be, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 067927e25902f544f85743710ae3bf71, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

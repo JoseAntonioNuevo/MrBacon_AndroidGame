@@ -122,6 +122,8 @@ MonoBehaviour:
   timeRemainingEscudo: 0
   PrefabDisparo: {fileID: 7650951051147848139, guid: 27803a94fb6203b42b3004c9e1111773,
     type: 3}
+  PrefabExplosion: {fileID: 3309795190247210952, guid: 06dfe14592f49f840a917bd821678dc4,
+    type: 3}
   timeEntreDisparoYDisparo: 0.1
 --- !u!50 &5917469918687954511
 Rigidbody2D:
