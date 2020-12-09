@@ -41355,6 +41355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4f16c60cfdfac4292aa623dd54f3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 0}
 --- !u!114 &1876940510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46912,6 +46913,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
         type: 0}
+    - target: {fileID: 5917469918687954508, guid: e63528d4cfe37094a896a95a23d990f1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5917469918687954511, guid: e63528d4cfe37094a896a95a23d990f1,
         type: 3}
       propertyPath: m_Simulated

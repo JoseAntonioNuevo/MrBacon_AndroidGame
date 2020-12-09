@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
 
     public float velocidad = 14f;
-    public float posicionX =0f;
+    public float posicionX = 0f;
     public int vida;
 
 
@@ -83,14 +83,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(vida != 0)
+        if (vida != 0)
             Movimiento();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Meteorito"){
+        if (collision.gameObject.tag == "Meteorito")
+        {
             if (collision.gameObject.GetComponent<movimiento>().elementoActivado)
             {
                 collision.gameObject.GetComponent<movimiento>().elementoActivado = false;
@@ -104,26 +105,34 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "powerup")
         {
-                timeRemainingEscudo = timeMaxOfEscudo;
-                Destroy(collision.gameObject);
+            timeRemainingEscudo = timeMaxOfEscudo;
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "Corazon")
         {
-            if(vida <6)
-            vida += 1;
+            if (vida < 6)
+                vida += 1;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "disparo")
+        {
+            vida -= 1;
+            collision.gameObject.GetComponent<AudioSource>().Play();
             Destroy(collision.gameObject);
         }
 
 
     }
 
-    public void MoveUp() {
-        transform.Translate(0, 0.5f* Time.deltaTime * velocidad, 0);
+    public void MoveUp()
+    {
+        transform.Translate(0, 0.5f * Time.deltaTime * velocidad, 0);
     }
     public void MoveDown()
     {
-        transform.Translate(0, -0.5f* Time.deltaTime * velocidad, 0);
+        transform.Translate(0, -0.5f * Time.deltaTime * velocidad, 0);
     }
 
     public void ActivarEscudo(bool active)
@@ -131,7 +140,8 @@ public class Player : MonoBehaviour
         BtnEscudoActivo = active;
     }
 
-    public void ActivarDisparo(bool active) {
+    public void ActivarDisparo(bool active)
+    {
         BtnDisparoActivo = active;
     }
 
@@ -143,7 +153,7 @@ public class Player : MonoBehaviour
         //si el boton up esta activo inputxy+1
 
 
-        if(inputaxyY != 0)
+        if (inputaxyY != 0)
             transform.Translate(0, inputaxyY * Time.deltaTime * velocidad, 0);
 
         if (Mathf.Abs(rigi.rotation) > 0 && !ActiveRotary)
@@ -159,21 +169,24 @@ public class Player : MonoBehaviour
         TimerRotary();//Función que ejecuta la logica de temporizadores.
 
         if (transform.rotation.z != 0)
-            transform.Rotate(new Vector3(0, 0, transform.rotation.z *-1) * Time.deltaTime * 500f);
+            transform.Rotate(new Vector3(0, 0, transform.rotation.z * -1) * Time.deltaTime * 500f);
 
         posicionVentana = mainCamera.WorldToViewportPoint(transform.position);
         posicionVentana.x = posicionX;
-        posicionVentana.y = Mathf.Clamp(posicionVentana.y,0.075f,0.85f);
+        posicionVentana.y = Mathf.Clamp(posicionVentana.y, 0.075f, 0.85f);
         transform.position = mainCamera.ViewportToWorldPoint(posicionVentana);
     }
 
-    private void TimerRotary() {
+    private void TimerRotary()
+    {
 
-        if(ActiveRotary)
+        if (ActiveRotary)
             if (timeRemaining > 0)
             {
-               timeRemaining -= Time.deltaTime;
-            }else{
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
                 //Resetear rigibody.
                 rigi.constraints = RigidbodyConstraints2D.FreezeRotation;
                 Vector3 eulerRotation = transform.rotation.eulerAngles;
@@ -183,7 +196,7 @@ public class Player : MonoBehaviour
             }
 
 
-        if(recibiendodaño)
+        if (recibiendodaño)
             if (timeRemainingDaño > 0)
             {
                 timeRemainingDaño -= Time.deltaTime;
@@ -209,7 +222,9 @@ public class Player : MonoBehaviour
         if (vida > 0)
         {
             vida -= danio;
-        }else{
+        }
+        else
+        {
             rigi.simulated = false;
         }
 
@@ -217,7 +232,7 @@ public class Player : MonoBehaviour
         sound.clip = sonidoDaño;
         sound.Play();
 
-        if(vida == 1)
+        if (vida == 1)
         {
             sound.clip = sonidoMotivaccion;
             sound.Play();
@@ -229,21 +244,25 @@ public class Player : MonoBehaviour
         //Pasar a escena gamer over al perder todas las vidas
         if (vida < 1)
         {
-            
+
         }
 
     }
 
-    public void DisparoEscudos() {
+    public void DisparoEscudos()
+    {
 
-        if (timeRemainingEscudo > limiteInicioEscudo) {
+        if (timeRemainingEscudo > limiteInicioEscudo)
+        {
 
-            
-            escudoActivado = Input.GetKey(KeyCode.Space) || BtnEscudoActivo  ;
 
-        } else {
+            escudoActivado = Input.GetKey(KeyCode.Space) || BtnEscudoActivo;
 
-            if (escudoActivado &&( timeRemainingEscudo <= limiteInicioEscudo || !(Input.GetKey(KeyCode.Space) || BtnEscudoActivo)))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+        }
+        else
+        {
+
+            if (escudoActivado && (timeRemainingEscudo <= limiteInicioEscudo || !(Input.GetKey(KeyCode.Space) || BtnEscudoActivo)))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
             {
                 escudoActivado = false;
                 timeRemainingEscudo = 0;
@@ -257,17 +276,19 @@ public class Player : MonoBehaviour
             sound.clip = sonidoActiveScudo;
             sound.Play();
         }
-            
+
 
         //Logica de calculo de tiempo,
         if (escudoActivado)
         {//Resta tiempo
             timeRemainingEscudo -= Time.deltaTime;
-        } else{
+        }
+        else
+        {
             //Si no se encuentra a tope, le sumamos
             if (timeRemainingEscudo < timeMaxOfEscudo)
                 timeRemainingEscudo += timeRecargaEscudoPorSegundo * Time.deltaTime;
-                
+
         }
 
 
@@ -279,7 +300,7 @@ public class Player : MonoBehaviour
         else
         {
 
-            if (disparoActivo && (timeRemainingRayo <= limiteInicioRayo || !(Input.GetKey(KeyCode.LeftShift) || BtnDisparoActivo )))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            if (disparoActivo && (timeRemainingRayo <= limiteInicioRayo || !(Input.GetKey(KeyCode.LeftShift) || BtnDisparoActivo)))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
             {
                 disparoActivo = false;
                 timeRemainingRayo = 0;
@@ -299,7 +320,7 @@ public class Player : MonoBehaviour
             if (timeRemaninUltimoDisparo < 0)
             {
                 timeRemaninUltimoDisparo = timeEntreDisparoYDisparo;
-               GameObject laser= Instantiate(PrefabDisparo);
+                GameObject laser = Instantiate(PrefabDisparo);
 
                 laser.transform.position = this.transform.position + new Vector3(2, 0);
 

@@ -15,6 +15,14 @@ public class IaBasic : MonoBehaviour
     Vector3 posicionVentana;
     Rigidbody2D rg;
 
+
+
+    public GameObject disparo;
+    Vector2 dispos;
+    public float firerate = 0.2f;
+    public float nextfire = 0.0f;
+
+
     void Start()
     {
         mainCamera = Camera.main.GetComponent<Camera>();
@@ -39,7 +47,20 @@ public class IaBasic : MonoBehaviour
             if (timeRemaninRecibeDaño < 0)
                 recibeDaño = false;
         }
-           
+
+        if (Input.GetKey(KeyCode.B) && Time.time > nextfire)
+        {
+            nextfire = Time.time + firerate;
+            fire();
+        }
+
+    }
+
+    void fire()
+    {
+        dispos = transform.position;
+        dispos += new Vector2(-2f, 0f);
+        Instantiate(disparo, dispos, Quaternion.identity);
     }
 
     void Fire(int idx, int wpn)

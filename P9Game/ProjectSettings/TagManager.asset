@@ -8,6 +8,8 @@ TagManager:
   - Corazon
   - Enemigo
   - powerup
+  - jugador
+  - disparo
   layers:
   - Default
   - TransparentFX
