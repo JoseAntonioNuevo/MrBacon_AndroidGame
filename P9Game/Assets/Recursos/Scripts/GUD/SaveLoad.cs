@@ -10,7 +10,7 @@ public static class SaveLoad
     public static void SavePlayer(DirectorGame player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.save";
+        string path = Application.persistentDataPath + "/player.xml";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SaveData data = new SaveData(player);
@@ -21,7 +21,7 @@ public static class SaveLoad
 
     public static SaveData LoadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.save";
+        string path = Application.persistentDataPath + "/player.xml";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

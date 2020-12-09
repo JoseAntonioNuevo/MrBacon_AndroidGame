@@ -12,8 +12,7 @@ public class SaveData
 
     public SaveData(DirectorGame player)
     {
-        name = player.nombreplayer;
-        score = player.maxscore;
-        level = player.level;
+        score = StaticClass.score;
+        level = StaticClass.actualLevel;
     }
 }

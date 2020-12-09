@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public static class StaticClass
 {
-    //Falta añadir nombre del jugador score etc.
+    public static int score { get; set; }
     public static int actualLevel { get; set; }
-
 }

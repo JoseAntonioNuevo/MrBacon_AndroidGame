@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class DirectorGame : MonoBehaviour
 {
+    ManagerScen pl;
+
     public GameObject jugador;
     public GameObject[] vidas;
 
@@ -24,17 +26,12 @@ public class DirectorGame : MonoBehaviour
 
     private int vidaMostrada;
 
-    public string nombreplayer = "MrBeacon";
-    public int maxscore;
     public int level;
-    public int score;
-    private DateTime timestartlevel;
+    private DateTime timefinishlevel;
 
 
     private bool MouseUpActive;
     private bool MouseDownActive;
-    private bool ButtonShieldActive;
-    private bool ButtonShootActive;
 
     private bool ActiveFinGame;
     private float timeRemaninActive;
@@ -139,7 +136,8 @@ public class DirectorGame : MonoBehaviour
 
     public void nextLevel()
     {
-
+        //carga escena de acabar nivel
+        timefinishlevel = DateTime.Now;
         Scene scenes = SceneManager.GetActiveScene();
         string scene = scenes.name;
 
@@ -153,6 +151,8 @@ public class DirectorGame : MonoBehaviour
         }
 
         StaticClass.actualLevel = Level;
+
+        if(level!=0) calcularscore (pl);
 
         SceneManager.LoadScene("LevelPassed");
     }
@@ -217,6 +217,26 @@ public class DirectorGame : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void calcularscore(ManagerScen pl)
+    {
+
+        TimeSpan span = timefinishlevel - pl.startlv();
+        int seg = Convert.ToInt32(span);
+        switch (level)
+        {
+            
+            case 1:
+                StaticClass.score = 1500 - (seg * 13);
+               break;
+            case 2:
+                StaticClass.score = 2500 - (seg * 13);
+                break;
+            case 3:
+                StaticClass.score = 3500 - (seg * 13);
+                break;
+        }
     }
 
 

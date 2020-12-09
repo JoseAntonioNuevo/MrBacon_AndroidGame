@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using System;
 
 public class ManagerScen : MonoBehaviour
 {
+    public DateTime startlvl;
     private Button MyButton = null; // assign in the editor
 
     public void Start()
@@ -15,7 +17,7 @@ public class ManagerScen : MonoBehaviour
     // Start is called before the first frame update
     public void SiguienteLevel()
     {
-          
+        //cargar siguiente nivel
         switch (StaticClass.actualLevel +1)
         {
             case 0:
@@ -23,12 +25,15 @@ public class ManagerScen : MonoBehaviour
                 break;
             case 1:
                 SceneManager.LoadScene("Nivel 1");
+                startlvl = DateTime.Now;
                 break;
             case 2:
                 SceneManager.LoadScene("Nivel 2");
+                startlvl = DateTime.Now;
                 break;
             case 3:
                 SceneManager.LoadScene("Nivel 3");
+                startlvl = DateTime.Now;
                 break;
             case 4:
                 SceneManager.LoadScene("Creditos");
@@ -46,12 +51,15 @@ public class ManagerScen : MonoBehaviour
                 break;
             case 1:
                 SceneManager.LoadScene("Nivel 1");
+                startlvl = DateTime.Now;
                 break;
             case 2:
                 SceneManager.LoadScene("Nivel 2");
+                startlvl = DateTime.Now;
                 break;
             case 3:
                 SceneManager.LoadScene("Nivel 3");
+                startlvl = DateTime.Now;
                 break;
         }
     }
@@ -61,6 +69,10 @@ public class ManagerScen : MonoBehaviour
         SceneManager.LoadScene("Nivel 1");
     }
 
+    public DateTime startlv()
+    {
+        return startlvl;
+    }
 
     public void Salir()
     {
