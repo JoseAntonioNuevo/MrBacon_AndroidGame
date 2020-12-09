@@ -5043,6 +5043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4f16c60cfdfac4292aa623dd54f3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 0}
 --- !u!114 &367215462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34645,9 +34646,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79705e3ec7ff734dbf4b56d82c8800f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidad: 8
   meteor: {fileID: 304417693060074308, guid: 04af58e4887e0ad44a38c7785180f80b, type: 3}
-  velocidadMeteoritos: 3.15
-  spawnRate: 1.58
+  spawnRatemeteor: 2
+  TrufaElectrica: {fileID: 4063295178902760909, guid: fb4eebf0213e3c84087071836d60544f,
+    type: 3}
+  spawnRatestrella: 2
+  nextSpawnestrella: 1
+  corazon: {fileID: 5089571552683663402, guid: ac49ef763c927e445977ad82a8826c9a, type: 3}
+  spawnRatecorazon: 2
+  nextSpawncorazon: 1
 --- !u!4 &994461527
 Transform:
   m_ObjectHideFlags: 0
@@ -34730,6 +34738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab4926dba60bf24d8ae0d95947a6906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}
 --- !u!114 &1053542066
 MonoBehaviour:
   m_ObjectHideFlags: 0
