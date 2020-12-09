@@ -60,9 +60,16 @@ public class Player : MonoBehaviour
     AudioSource sound;
     Animator animacion;
 
+    public GameObject PrefabDisparo;
+    public float timeEntreDisparoYDisparo;
+    float timeRemaninUltimoDisparo;
+
+
     void Start()
     {
         timeRemainingEscudo = timeMaxOfEscudo;
+        timeRemainingRayo = timeMaxOfRayo;
+
         escudoActivo = false;
         disparoActivo = false;
         mainCamera = Camera.main.GetComponent<Camera>();
@@ -251,13 +258,13 @@ public class Player : MonoBehaviour
 
         if (timeRemainingRayo > limiteInicioRayo)
         {
-            disparoActivo = Input.GetKey(KeyCode.LeftControl) || BtnDisparoActivo;
+            disparoActivo = Input.GetKey(KeyCode.LeftShift) || BtnDisparoActivo;
 
         }
         else
         {
 
-            if (disparoActivo && (timeRemainingRayo <= limiteInicioRayo || !(Input.GetKey(KeyCode.LeftControl) || BtnDisparoActivo )))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
+            if (disparoActivo && (timeRemainingRayo <= limiteInicioRayo || !(Input.GetKey(KeyCode.LeftShift) || BtnDisparoActivo )))//Si el escudo se encuentra activado y no tiene tiempo de uso disponible
             {
                 disparoActivo = false;
                 timeRemainingRayo = 0;
@@ -272,6 +279,17 @@ public class Player : MonoBehaviour
         if (disparoActivo)
         {//Resta tiempo
             timeRemainingRayo -= Time.deltaTime;
+
+            timeRemaninUltimoDisparo -= Time.deltaTime;
+            if (timeRemaninUltimoDisparo < 0)
+            {
+                timeRemaninUltimoDisparo = timeEntreDisparoYDisparo;
+               GameObject laser= Instantiate(PrefabDisparo);
+
+                laser.transform.position = this.transform.position + new Vector3(2, 0);
+
+            }
+
         }
         else
         {

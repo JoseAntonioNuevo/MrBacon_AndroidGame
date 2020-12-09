@@ -11,12 +11,17 @@ public class DirectorGame : MonoBehaviour
     public GameObject jugador;
     public GameObject[] vidas;
 
+
+    public GameObject Enemigo;
+
     public GameObject SliderEscudo;
     private Slider escudoView;
     public GameObject SliderLaser;
     private Slider laserView;
 
     private Player scriptjugador;
+    private IaBasic scriptEnemigo;
+
     private int vidaMostrada;
 
     public string nombreplayer = "MrBeacon";
@@ -37,6 +42,9 @@ public class DirectorGame : MonoBehaviour
     void Start()
     {
         scriptjugador = jugador.GetComponent<Player>();
+
+        scriptEnemigo = Enemigo.GetComponent<IaBasic>();
+
         vidaMostrada = scriptjugador.vida;
         MostrarVida(vidaMostrada);
         escudoView = SliderEscudo.GetComponent<Slider>();
@@ -65,7 +73,13 @@ public class DirectorGame : MonoBehaviour
                 
 
         }
-        RefescarBarras();
+
+        if (scriptEnemigo.vida < 1)
+        {
+            nextLevel();
+        }
+
+            RefescarBarras();
 
         if (MouseUpActive)
             scriptjugador.MoveUp();

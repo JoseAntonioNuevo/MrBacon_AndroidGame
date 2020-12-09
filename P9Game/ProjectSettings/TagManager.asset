@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Meteorito
   - Corazon
+  - Enemigo
   layers:
   - Default
   - TransparentFX

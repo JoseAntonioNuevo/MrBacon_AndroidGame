@@ -6,71 +6,40 @@ public class IaBasic : MonoBehaviour
 {
     Camera mainCamera;
     public float posicionX = 0f;
+    public float vida = 200;
 
-    [SerializeField]
-    float health = 100f;
-
-    [SerializeField]
-    float speed = 1f;
-
-    [SerializeField]
-    bool isFloating = false;
-
-    [SerializeField]
-    float floatingsSpeed = 0.5f;
-
-    [SerializeField]
-    float minDelay = 1f;
-
-    [SerializeField]
-    float maxDelay = 3f;
-
-    [SerializeField]
-    GameObject[] weapon = null;
-
-    [SerializeField]
-   // ProjectileData[] projectiles = null;
-
-    float fireDelay = 0;
-
-    public float time = 0;
-    public int random = 0;
+    public bool recibeDaño;
+    public float timeRemaninRecibeDaño;
+    public GameObject PrefabExplosion;
 
     Vector3 posicionVentana;
     Rigidbody2D rg;
-    // Start is called before the first frame update
+
     void Start()
     {
         mainCamera = Camera.main.GetComponent<Camera>();
         rg = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //Floating();
-       // FireController();
-
         posicionVentana = mainCamera.WorldToViewportPoint(transform.position);
 
 
-        //posicionVentana.y = Mathf.Clamp(posicionVentana.y, 0.075f, 0.85f);
         if (posicionVentana.y < 0.060f)
             rg.AddForce(new Vector2(0, 20));
 
         if (posicionVentana.y > 0.70f)
             rg.AddForce(new Vector2(0, -20));
-        //transform.position = mainCamera.ViewportToWorldPoint(posicionVentana);
-    }
 
-    void Floating()
-    {
-
-        if (isFloating)
+        if (recibeDaño)
         {
-            transform.position = new Vector3(transform.position.x, Mathf.Sin(Time.time) * floatingsSpeed);
+            timeRemaninRecibeDaño -= Time.deltaTime;
+            if (timeRemaninRecibeDaño < 0)
+                recibeDaño = false;
         }
-
+           
     }
 
     void Fire(int idx, int wpn)
@@ -108,5 +77,16 @@ public class IaBasic : MonoBehaviour
 
 
 
+    }
+
+    public void QuitarVida(float daño) {
+        vida -= daño;
+        recibeDaño = true;
+        timeRemaninRecibeDaño = 1;
+        //Animación de daño..
+        GameObject var = Instantiate(PrefabExplosion);
+        var.transform.position = this.transform.position + new Vector3(0,0,-1);
+
+        //Sonido de daño...
     }
 }

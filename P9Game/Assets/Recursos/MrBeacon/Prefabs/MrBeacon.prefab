@@ -120,6 +120,8 @@ MonoBehaviour:
   sonidoActiveScudo: {fileID: 8300000, guid: bb9f948a901437e4ebf933e9e9127c67, type: 3}
   "recibiendoda\xF1o": 0
   timeRemainingEscudo: 0
+  PrefabDisparo: {fileID: 0}
+  timeEntreDisparoYDisparo: 0.1
 --- !u!50 &5917469918687954511
 Rigidbody2D:
   serializedVersion: 4
