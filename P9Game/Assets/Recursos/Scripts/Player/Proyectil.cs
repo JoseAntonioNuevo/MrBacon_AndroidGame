@@ -45,7 +45,7 @@ public class Proyectil : MonoBehaviour
                 collision.gameObject.GetComponent<AudioSource>().Play();
 
                
-                Destroy(collision.gameObject,3);
+                Destroy(collision.gameObject,0.4f);
                 Destroy(this.gameObject);
             }
         }

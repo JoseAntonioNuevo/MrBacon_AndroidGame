@@ -145,21 +145,19 @@ public class DirectorGame : MonoBehaviour
         Scene scenes = SceneManager.GetActiveScene();
         string scene = scenes.name;
 
+        int Level = 0;
         switch (scene)
         {
-            case "Nivel 0":
-                SceneManager.LoadScene("GameOver");
-                break;
-            case "Nivel 1":
-                SceneManager.LoadScene("GameOver2");
-                break;
-            case "Nivel 2":
-                SceneManager.LoadScene("GameOver3");
-                break;
-            case "Nivel 3":
-                SceneManager.LoadScene("GameOver4");
-                break;
+            case "Nivel 0": Level = 0; break;
+            case "Nivel 1": Level = 1; break;
+            case "Nivel 2": Level = 2; break;
+            case "Nivel 3": Level = 3; break;
         }
+
+        StaticClass.actualLevel = Level;
+
+
+        SceneManager.LoadScene("GameOver");
     }
     public void MoveUpON() { MouseUpActive = true; }
 

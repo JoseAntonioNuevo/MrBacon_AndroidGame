@@ -422,6 +422,7 @@ MonoBehaviour:
   - {fileID: 794206735220877326}
   - {fileID: 794206733802030850}
   - {fileID: 794206734822824405}
+  Enemigo: {fileID: 0}
   SliderEscudo: {fileID: 1882605033703866530}
   SliderLaser: {fileID: 4450031374520056643}
   nombreplayer: MrBeacon
