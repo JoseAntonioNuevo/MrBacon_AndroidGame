@@ -101,6 +101,21 @@ public class Player : MonoBehaviour
                 //Destroy(collision.gameObject);
             }
         }
+
+        if (collision.gameObject.tag == "powerup")
+        {
+                timeRemainingEscudo = timeMaxOfEscudo;
+                Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "Corazon")
+        {
+            if(vida <6)
+            vida += 1;
+            Destroy(collision.gameObject);
+        }
+
+
     }
 
     public void MoveUp() {

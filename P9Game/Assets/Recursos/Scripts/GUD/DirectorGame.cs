@@ -107,9 +107,9 @@ public class DirectorGame : MonoBehaviour
                 vidas[i].SetActive(false);
             }
         else
-            for (int i = vida; i < vidaMostrada; i++)
+            for (int i = vidaMostrada ; i < vida; i++)
             {
-                vidas[i].SetActive(false);
+                vidas[i].SetActive(true);
             }
     }
 
