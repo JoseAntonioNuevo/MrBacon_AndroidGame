@@ -120,7 +120,8 @@ MonoBehaviour:
   sonidoActiveScudo: {fileID: 8300000, guid: bb9f948a901437e4ebf933e9e9127c67, type: 3}
   "recibiendoda\xF1o": 0
   timeRemainingEscudo: 0
-  PrefabDisparo: {fileID: 0}
+  PrefabDisparo: {fileID: 7650951051147848139, guid: 27803a94fb6203b42b3004c9e1111773,
+    type: 3}
   timeEntreDisparoYDisparo: 0.1
 --- !u!50 &5917469918687954511
 Rigidbody2D:
@@ -152,7 +153,8 @@ AudioSource:
   m_GameObject: {fileID: 5917469918687954508}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 44b89bd3fadcb2e4caea3de739d5acdc,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

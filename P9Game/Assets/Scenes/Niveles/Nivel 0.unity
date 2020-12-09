@@ -41040,6 +41040,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5529337794361825371, guid: af1f34a095bd6e74084243bca84fc783,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 44b89bd3fadcb2e4caea3de739d5acdc,
+        type: 2}
     - target: {fileID: 6709633964674691798, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -41049,6 +41055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.16998291
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655123911371787231, guid: af1f34a095bd6e74084243bca84fc783,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.7161865
       objectReference: {fileID: 0}
     - target: {fileID: 7854566022515866477, guid: af1f34a095bd6e74084243bca84fc783,
         type: 3}

@@ -27,6 +27,7 @@ public class IaBasic : MonoBehaviour
     {
         mainCamera = Camera.main.GetComponent<Camera>();
         rg = GetComponent<Rigidbody2D>();
+
     }
 
 
