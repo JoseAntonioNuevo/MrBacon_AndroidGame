@@ -702,11 +702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e9d93cc24d250459c606aeab1cfcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStars: 100
+  MaxStars: 50
   StarSize: 0.1
   StarSizeRange: 0.5
   FieldWidth: 20
-  FieldHeight: 25
+  FieldHeight: 10
   velocity: 1.57
   Colorize: 0
   ParallaxFactor: 0.7
@@ -5478,11 +5478,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e9d93cc24d250459c606aeab1cfcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStars: 100
+  MaxStars: 50
   StarSize: 0.1
   StarSizeRange: 0.5
   FieldWidth: 20
-  FieldHeight: 25
+  FieldHeight: 10
   velocity: 1.57
   Colorize: 0
   ParallaxFactor: 1
@@ -10864,11 +10864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e9d93cc24d250459c606aeab1cfcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStars: 100
+  MaxStars: 50
   StarSize: 0.15
   StarSizeRange: 0.5
   FieldWidth: 20
-  FieldHeight: 25
+  FieldHeight: 10
   velocity: 1.57
   Colorize: 0
   ParallaxFactor: 0.1
@@ -15757,9 +15757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79705e3ec7ff734dbf4b56d82c8800f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 8
+  velocidad: 11.56
   meteor: {fileID: 304417693060074308, guid: 04af58e4887e0ad44a38c7785180f80b, type: 3}
-  spawnRatemeteor: 2
+  spawnRatemeteor: 0.88
   TrufaElectrica: {fileID: 4063295178902760909, guid: fb4eebf0213e3c84087071836d60544f,
     type: 3}
   spawnRatestrella: 2
@@ -16238,11 +16238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e9d93cc24d250459c606aeab1cfcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStars: 100
+  MaxStars: 50
   StarSize: 0.1
   StarSizeRange: 0.5
   FieldWidth: 20
-  FieldHeight: 25
+  FieldHeight: 10
   velocity: 1.57
   Colorize: 0
   ParallaxFactor: 0.5
@@ -21151,11 +21151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e9d93cc24d250459c606aeab1cfcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStars: 100
+  MaxStars: 50
   StarSize: 0.1
   StarSizeRange: 0.5
   FieldWidth: 20
-  FieldHeight: 25
+  FieldHeight: 10
   velocity: 1.57
   Colorize: 0
   ParallaxFactor: 0.3
@@ -26161,11 +26161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e9d93cc24d250459c606aeab1cfcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxStars: 100
+  MaxStars: 50
   StarSize: 0.1
   StarSizeRange: 0.5
   FieldWidth: 20
-  FieldHeight: 25
+  FieldHeight: 10
   velocity: 1.57
   Colorize: 0
   ParallaxFactor: 0.9
