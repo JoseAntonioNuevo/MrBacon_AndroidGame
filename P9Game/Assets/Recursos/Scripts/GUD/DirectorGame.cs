@@ -38,6 +38,9 @@ public class DirectorGame : MonoBehaviour
 
     private bool ActiveFinGame;
     private float timeRemaninActive;
+    public static bool GameIsPaused = false;
+
+    public GameObject pauseMenuUI;
 
     void Start()
     {
@@ -72,6 +75,18 @@ public class DirectorGame : MonoBehaviour
             }
                 
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
 
         if (scriptEnemigo.vida < 1)
@@ -176,6 +191,31 @@ public class DirectorGame : MonoBehaviour
     public void ActivarEscudoOFF() { scriptjugador.ActivarEscudo(false); }
 
 
+
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    public void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 
 }
