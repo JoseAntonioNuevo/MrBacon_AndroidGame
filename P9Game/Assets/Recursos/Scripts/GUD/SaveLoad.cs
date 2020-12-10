@@ -1,39 +1,47 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
-
+using System;
 
 public static class SaveLoad
 {
 
-    public static void SavePlayer(DirectorGame player)
+    public static void SavePlayer(SaveData player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.xml";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        SaveData data = new SaveData(player);
 
-        formatter.Serialize(stream, data);
+        formatter.Serialize(stream, player);
         stream.Close();
     }
 
-    public static SaveData LoadPlayer()
+    public static void LoadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.xml";
-        if (File.Exists(path))
+        try
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            SaveData data = formatter.Deserialize(stream) as SaveData;
-            stream.Close();
+            string path = Application.persistentDataPath + "/player.xml";
+            if (File.Exists(path))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(path, FileMode.Open);
+                SaveData data = formatter.Deserialize(stream) as SaveData;
+                stream.Close();
 
-            return data;
+                StaticClass.score = data.score;
+                StaticClass.actualLevel = data.level;
+
+            }
+            else
+            {
+                StaticClass.score = 0;
+                StaticClass.actualLevel = 0;
+            }
         }
-        else
-        {
-            return null;
+        catch (Exception ex) {
+            StaticClass.score = 0;
+            StaticClass.actualLevel = 0;
         }
     }
 }

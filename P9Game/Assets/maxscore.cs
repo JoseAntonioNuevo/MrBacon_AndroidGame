@@ -10,7 +10,7 @@ public class maxscore : MonoBehaviour
 
     void Start()
     {
-        score = StaticClass.score;
+        score = StaticClass.Totalscore;
         mytext = GameObject.Find("title (9)").GetComponent<Text>();
 
         mytext.text = score.ToString();

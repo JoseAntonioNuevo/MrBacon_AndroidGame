@@ -6,5 +6,6 @@ using UnityEngine;
 public static class StaticClass
 {
     public static int score { get; set; }
+    public static int Totalscore { get; set; }
     public static int actualLevel { get; set; }
 }

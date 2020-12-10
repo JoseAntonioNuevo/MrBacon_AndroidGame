@@ -21,23 +21,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Niveles/Nivel 2.unity
     guid: 2fa77e6e424254243be88582e316f524
   - enabled: 0
-    path: Assets/Scenes/Menus/GameOver3.unity
-    guid: abc40d4dfb66ac5418c88287989956d5
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Niveles/Nivel 3.unity
     guid: 88a6677222a201d46a5a4763df8a8cfe
   - enabled: 0
-    path: Assets/Scenes/Menus/GameOver4.unity
-    guid: c15dbdef9915cab4aa3e86607c414380
-  - enabled: 1
-    path: Assets/Scenes/Menus/EndMenu.unity
-    guid: 38d6545e74f6bd34e8afc60df0c40810
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Menus/GameOver.unity
     guid: e7063927eaf2cd34c81c877576b05f3c
   - enabled: 0
-    path: Assets/Scenes/Menus/GameOver2.unity
-    guid: 7775d485e0a9e71419491eed3feb5eb5
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Menus/LevelPassed.unity
     guid: 47147adff374e8841b769d030e9ec76a

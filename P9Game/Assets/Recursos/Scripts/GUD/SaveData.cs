@@ -6,13 +6,14 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public string name;
     public int score;
     public int level;
 
-    public SaveData(DirectorGame player)
+    public SaveData() { }
+
+    public SaveData(int level, int score)
     {
-        score = StaticClass.score;
-        level = StaticClass.actualLevel;
+        this.score = score;
+        this.level = level;
     }
 }

@@ -88,6 +88,7 @@ public class DirectorGame : MonoBehaviour
         }
 
         if(Enemigo!= null)
+
         if (scriptEnemigo.vida < 1)
         {
             nextLevel();
@@ -152,7 +153,9 @@ public class DirectorGame : MonoBehaviour
 
         StaticClass.actualLevel = Level;
 
-        if(level!=0) calcularscore (pl);
+        if(Level!= 0) calcularscore (pl,Level);
+
+        SaveLoad.SavePlayer(new SaveData(Level, StaticClass.score));
 
         SceneManager.LoadScene("LevelPassed");
     }
@@ -219,11 +222,17 @@ public class DirectorGame : MonoBehaviour
         Application.Quit();
     }
 
-    public void calcularscore(ManagerScen pl)
+    public void calcularscore(ManagerScen pl, int level)
     {
 
-        TimeSpan span = timefinishlevel - pl.startlv();
-        int seg = Convert.ToInt32(span);
+        TimeSpan span;
+        int seg = 0;
+        if (pl != null)
+        {
+            span = timefinishlevel - pl.startlv();
+            seg= Convert.ToInt32(span.TotalSeconds);
+        }
+
         switch (level)
         {
             
@@ -237,6 +246,8 @@ public class DirectorGame : MonoBehaviour
                 StaticClass.score = 3500 - (seg * 13);
                 break;
         }
+
+        StaticClass.Totalscore += StaticClass.score;
     }
 
 
