@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83d0fb669a91a64c8b8b1cb14e2b50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1oaEnemigo": 0.5
+  "da\xF1oaEnemigo": 2
   velocidad: 8
   Inicio: {fileID: 8300000, guid: 067927e25902f544f85743710ae3bf71, type: 3}
 --- !u!82 &3074524920861961029

@@ -689,17 +689,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Destroy.cs" />
+    <Compile Include="Assets\PauseMenu.cs" />
     <Compile Include="Assets\Recursos\Fondos\EstrellasGalaxy1\ImageParalax.cs" />
     <Compile Include="Assets\Recursos\Fondos\EstrellasGalaxy1\Starfield.cs" />
     <Compile Include="Assets\Recursos\Meteoritos\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Recursos\Meteoritos\Scripts\movimiento.cs" />
     <Compile Include="Assets\Recursos\Scripts\GUD\DirectorGame.cs" />
     <Compile Include="Assets\Recursos\Scripts\GUD\MainMenu.cs" />
+    <Compile Include="Assets\Recursos\Scripts\GUD\ManagerScen.cs" />
     <Compile Include="Assets\Recursos\Scripts\GUD\SaveData.cs" />
     <Compile Include="Assets\Recursos\Scripts\GUD\SaveLoad.cs" />
     <Compile Include="Assets\Recursos\Scripts\GUD\ScorePoint.cs" />
+    <Compile Include="Assets\Recursos\Scripts\GUD\StaticClass.cs" />
+    <Compile Include="Assets\Recursos\Scripts\IAEnemigo\Disparo.cs" />
+    <Compile Include="Assets\Recursos\Scripts\IAEnemigo\IaBasic.cs" />
+    <Compile Include="Assets\Recursos\Scripts\IAEnemigo\NewBehaviourScript.cs" />
     <Compile Include="Assets\Recursos\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Recursos\Scripts\Player\Proyectil.cs" />
+    <Compile Include="Assets\Recursos\Texturas\movpowerup.cs" />
+    <Compile Include="Assets\RotaryMenu.cs" />
+    <Compile Include="Assets\SetVolume.cs" />
     <Compile Include="Assets\desroyPlayer.cs" />
+    <Compile Include="Assets\maxscore.cs" />
+    <Compile Include="Assets\scorelvl.cs" />
     <Compile Include="Assets\scr.cs" />
   </ItemGroup>
   <ItemGroup>
